@@ -1,2 +1,51 @@
 # Covid-Xray-Eval-Module
-Pytorch, Kaggle DL project in a nutshell. Python modules to evaluate X-ray images to check for covid. Image transform + Prediction, All in one
+
+Kaggle DL project with PyTorch in a nutshell. Python modules to evaluate X-ray images to check for covid. 
+
+Image transform + Model + Prediction / All-in-one
+
+### How to use ? 
+Open a terminal in the same directory as the python files. 
+ > git clone https://github.com/rootloginson/Covid-Xray-Eval-Module.git
+
+ > python evalImage.py -img 'imagename'
+  
+***-img***  is for argparser to pass image name. 
+
+if image is in the same directory as the python files pass only the name. If not, pass 'directory/imagename'. 
+
+Note: I  letter in eval image look like l  :) . 
+
+---
+
+**evalimage.py** ->> main module. Loads the model. Pass image name and model to below functions as an argument.
+
+**imageTransform.py** ->> applies transforms that is applied to input image of the PyTorch validation and test model.
+
+```python
+def makeInputforCNN(xray_image_name):
+"""
+  Arguments: 
+    xray_image_name (str):
+        if image file is in the same directory as imageTransform.py pass the imagename.
+        function adds the image name to working directory adress.
+  Returns:
+    transformed image (torch.tensor):
+        transformed image tensor. This will be the input of trained model for forward pass.
+        This return object will send to get_prediction as an argument, along with the loaded model.
+"""
+```
+
+**getPrediction.py** ->> uses the return object of imageTransform.py to forward pass on loaded model
+```python
+def prediction(img_tensor, CovidPredictionModel):
+    """
+    Argument:
+        img_tensor (torch.tensor): return object of makeInputforCNN function.        
+        CovidPredictionModel: pytorch trained model for CPU.
+    Returns:
+      forward pass output (torch tensor):
+        !! No softmax function applied. This will be applied in evalImage.py to print
+        LogSoftmax and Softmax output. In model nn.CrossEntropyLoss() has been used. 
+        !!! nn.CrossEntropyLoss combines nn.LogSoftmax + nn.NLLLoss
+```
