@@ -5,7 +5,7 @@ import os
 def prediction(img_tensor, CovidPredictionModel):
     """
     Argument:
-        transformed image tensor: -> torch.tensor
+        transformed image tensor: torch.tensor
 
         Return object of "def makeInputforCNN(img_path)" function in
         imageTransform.py module.

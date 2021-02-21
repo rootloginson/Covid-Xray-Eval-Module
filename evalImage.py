@@ -31,7 +31,7 @@ if __name__ == '__main__':
     # terminal outputs
     # need to learn fancy formatting styles!
     print("")
-    print("nn.LogSotmax Probabilty Distribution >>>")
+    print("nn.LogSoftmax Probabilty Distribution >>>")
     pLogSoftmax = torch.nn.LogSoftmax(dim=1)(probabilty_dist).tolist()[0]
     print("---------------")
     print(f"Normal: {pLogSoftmax[0]}", 
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     print("---------------")
     print("")
     print("")
-    print("Sotmax Probabilty Distribution >>> ")
+    print("Softmax Probabilty Distribution >>> ")
     pSoftmax = torch.nn.Softmax(dim=1)(probabilty_dist).tolist()[0]
     print("---------------")
     print(f"Normal: {pSoftmax[0]}", 
