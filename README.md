@@ -4,6 +4,7 @@ Kaggle DL project with PyTorch in a nutshell. Python modules to evaluate X-ray i
 
 Image transform + Model + Prediction / All-in-one
 
+---
 ### How to use ? 
 Open a terminal in the same directory as the python files. 
  > git clone https://github.com/rootloginson/Covid-Xray-Eval-Module.git
