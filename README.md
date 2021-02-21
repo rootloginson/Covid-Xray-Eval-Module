@@ -49,4 +49,5 @@ def prediction(img_tensor, CovidPredictionModel):
         !! No softmax function applied. This will be applied in evalImage.py to print
         LogSoftmax and Softmax output. In model nn.CrossEntropyLoss() has been used. 
         !!! nn.CrossEntropyLoss combines nn.LogSoftmax + nn.NLLLoss
+    """
 ```
