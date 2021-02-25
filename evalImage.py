@@ -1,6 +1,9 @@
 import os, sys, argparse
 import torch
-import getPrediction, imageTransform
+import imageTransform 
+import forwardPass
+from outputFunction import outputFunc
+
 
 
 parser = argparse.ArgumentParser(description='Pass a xray image path')
@@ -25,26 +28,19 @@ if __name__ == '__main__':
     # get transformed image
     transformed_image = imageTransform.makeInputforCNN(args.img)
     # get raw output for probability distribution
-    probabilty_dist = getPrediction.prediction(transformed_image, CovidPredictionModel)
-
+    logits = forwardPass.getLogits(transformed_image, CovidPredictionModel)
+    print('If you use -i(interface) you can access to logit\'s object with the python object called "logits"\n')
     # print for nn.LogSoftmax and nn.Softmax
     # terminal outputs
-    # need to learn fancy formatting styles!
-    print("")
-    print("nn.LogSoftmax Probabilty Distribution >>>")
-    pLogSoftmax = torch.nn.LogSoftmax(dim=1)(probabilty_dist).tolist()[0]
-    print("---------------")
-    print(f"Normal: {pLogSoftmax[0]}", 
-          f"Non-Covid Pneumonia: {pLogSoftmax[1]}",
-          f"Covid Pneumonia: {pLogSoftmax[2]}", sep='\n')
-    print("---------------")
-    print("")
-    print("")
-    print("Softmax Probabilty Distribution >>> ")
-    pSoftmax = torch.nn.Softmax(dim=1)(probabilty_dist).tolist()[0]
-    print("---------------")
-    print(f"Normal: {pSoftmax[0]}", 
-          f"Non-Covid Pneumonia: {pSoftmax[1]}",
-          f"Covid Pneumonia: {pSoftmax[2]}", sep='\n')
-    print("---------------")
+    _ = outputFunc(logits, 'logsoftmax')
+    _ = outputFunc(logits, 'softmax')
+   
     ### FIN :) ###
+
+
+### Example for debug mode ###
+""" 
+python -i evalImage.py
+sm_output = torch.nn.Softmax(dim=1)(logits)
+print(sm_output)
+"""

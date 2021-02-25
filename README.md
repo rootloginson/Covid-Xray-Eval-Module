@@ -43,9 +43,9 @@ def makeInputforCNN(xray_image_name):
 """
 ```
 
-**getPrediction.py** ->> uses the return object of imageTransform.py to forward pass on loaded model
+**forwardPass.py** ->> uses the return object of imageTransform.py to forward pass on loaded model
 ```python
-def prediction(img_tensor, CovidPredictionModel):
+def getLogits(img_tensor, CovidPredictionModel):
     """
     Argument:
         img_tensor (torch.tensor): return object of makeInputforCNN function.        

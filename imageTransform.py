@@ -28,7 +28,6 @@ def apply_transforms(img):
     )
 
     transformed_img = transformation(img)
-
     return transformed_img
 
 
@@ -54,4 +53,4 @@ def makeInputforCNN(img_path):
 
 # debug reasons
 if __name__ == '__main__':
-    print("Image Transform module is running as main for no reason.(Probably @.o)")
+    print("Image Transform module is running as main module for no reason.(Probably @.o)")
