@@ -25,6 +25,11 @@ I hope someday world will get through this problem.
 
 ---
 
+**To run the test file**
+ > python -m unittest
+
+---
+
 **evalimage.py** ->> main module. Loads the model. Pass image name and model to below functions as an argument.
 
 **imageTransform.py** ->> applies transforms that is applied to input image of the PyTorch validation and test model.
