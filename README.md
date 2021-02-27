@@ -25,7 +25,7 @@ I hope someday world will get through this problem.
 
 ---
 
-**To run the test file**
+**To run the tests**
  > python -m unittest
 
 ---
