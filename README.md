@@ -1,7 +1,7 @@
 # Covid-Xray-Eval-Module
 
 Kaggle DL project with PyTorch in a nutshell. Python modules to evaluate X-ray images to check for covid caused lung inflammation. 
-This repo is the summary of my very first 0 to End project in ComputerScience and DeepLearning. Feel free to comment.
+This repo is the summary of a Zero to End project for covid19 detection on x ray image to utilize Computer Science and Deep Learning methods. Feel free to comment.
 
 Image transform + Model + Prediction / All-in-one
 
