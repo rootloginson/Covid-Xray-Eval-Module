@@ -57,8 +57,8 @@ def getLogits(img_tensor, CovidPredictionModel):
         CovidPredictionModel: pytorch trained model for CPU.
     Returns:
       forward pass output (torch tensor):
-        !! No softmax function applied. This will be applied in evalImage.py to print
+        ! No softmax function applied. This will be applied in evalImage.py to print
         LogSoftmax and Softmax output. In model nn.CrossEntropyLoss() has been used. 
-        !!! nn.CrossEntropyLoss combines nn.LogSoftmax + nn.NLLLoss
+        ! nn.CrossEntropyLoss combines nn.LogSoftmax + nn.NLLLoss
     """
 ```
